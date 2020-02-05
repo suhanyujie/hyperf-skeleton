@@ -23,6 +23,7 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
 # update
 RUN set -ex \
     && echo 'alias ll="ls -alh"' >> /etc/profile \
+    && source /etc/profile \
     && apk update \
     # install composer
     && cd /tmp \
