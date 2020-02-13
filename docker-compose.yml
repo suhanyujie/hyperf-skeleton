@@ -3,13 +3,14 @@ services:
   mysql:
     container_name: mysql1
     image: 'mysql:5.7'
+    privileged: true
     ports:
-      - "3307:3307"
-    volumes:
-      - /Users/suhanyu/www2/software/docker/containerData/tars/mysql_1:/var/lib/mysql
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: '123456'
       TZ: 'Asia/Shanghai'
+    volumes:
+      - /Users/suhanyu/www/devData/docker/skeleton/mysql_1:/var/lib/mysql
     restart: always
   redis:
     container_name: redis1
@@ -19,7 +20,7 @@ services:
     restart: always
   hyperf:
     container_name: hyperf1
-    image: 'e_hyperf:0.1.5'
+    image: 'e_hyperf:0.1.6'
     ports:
       - "9501:9501"
       - "9502:9502"

@@ -22,8 +22,9 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
 
 # update
 RUN set -ex \
-    && echo 'alias ll="ls -alh"' >> /etc/profile \
-    && source /etc/profile \
+    && echo '#!/usr/bin/env bash' > /usr/bin/ll \
+    && echo 'ls -alh $1' >> /usr/bin/ll \
+    && chmod +x /usr/bin/ll \
     && apk update \
     # install composer
     && cd /tmp \
