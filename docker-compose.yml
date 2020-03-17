@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysql:
+  mysql1:
     container_name: mysql1
     image: 'mysql:5.7'
     privileged: true
@@ -10,25 +10,23 @@ services:
       MYSQL_ROOT_PASSWORD: '123456'
       TZ: 'Asia/Shanghai'
     volumes:
-      - /Users/suhanyu/www/devData/docker/skeleton/mysql_1:/var/lib/mysql
+      - ~/www/devData/docker/skeleton/mysql_1:/var/lib/mysql
     restart: always
-  redis:
+  redis1:
     container_name: redis1
     image: 'redis:5.0.7'
     ports:
       - '6379:6379'
     restart: always
-  hyperf:
+  hyperf1:
     container_name: hyperf1
-    image: 'e_hyperf:0.1.6'
+    image: 'e_hyperf:0.1.8'
     ports:
       - "9501:9501"
       - "9502:9502"
       - "9503:9503"
     volumes:
-      - /Users/suhanyu/www2/tech/repo/php/hyperf/dockerDir/skeleton:/opt/www
-    dns: 192.168.1.1
+      - ~/www2/tech/repo/php/hyperf/dockerDir/skeleton:/opt/www
     environment:
       TZ: 'Asia/Shanghai'
-    restart: always
   
