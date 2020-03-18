@@ -6,6 +6,11 @@
 * 增加了 websocket 相关控制器
 * Dockerfile 是基于 PHP7.4 版本的 hyperf 开发环境镜像
     - 构建镜像 `docker build -t e_hyperf:0.1.2 .`
+    
+
 
 ## 注意事项
 * `app/Controller` 目录下不允许建目录
+
+## 参考
+* 命令行下创建数据库 https://www.thinbug.com/q/2428416
