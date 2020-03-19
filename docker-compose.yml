@@ -18,6 +18,14 @@ services:
     ports:
       - '6379:6379'
     restart: always
+  elastic1:
+    container_name: es1
+    image: 'elasticsearch:7.6.1'
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      'discovery.type': 'single-node'
   hyperf1:
     container_name: hyperf1
     image: 'e_hyperf:0.1.8'
@@ -25,6 +33,8 @@ services:
       - "9501:9501"
       - "9502:9502"
       - "9503:9503"
+    links:
+      - redis1
     volumes:
       - ~/www2/tech/repo/php/hyperf/dockerDir/skeleton:/opt/www
     environment:

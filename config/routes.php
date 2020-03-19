@@ -15,7 +15,10 @@ use App\Controller\IndexController;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
 
-Router::get('/post', [IndexController::class, 'post']);
+Router::addGroup('/test', function () {
+    Router::get('/post', [IndexController::class, 'post']);
+
+});
 
 Router::addServer('ws', function () {
     Router::get('/', 'App\Controller\WebSocketController');
